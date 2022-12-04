@@ -1,1 +1,18 @@
-h1 TMWSD is #{adjective}!
+h1(class="home_title") This Message Will Self-Destruct!
+
+form(class="create_message" action="/message" method="post")
+    div
+    label(for="message_title")
+    input(type="message_title" id="message_title" name="message_title" placeholder="Message Title" required)
+    
+    div
+    label(for="message_content")
+    input(type="message_content" id="message_content" name="password" placeholder="Message Content" required)
+    
+    input(type="submit" class="create_message_button" value="Create Message")
+
+div(class="all_messages")
+each message in messages
+    div(class="game_box")
+        a(href=`/messages/${message.id}`)
+            h2(class="message_title") #{message.title}
