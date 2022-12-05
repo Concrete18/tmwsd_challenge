@@ -1,0 +1,76 @@
+* {
+    font-family: "Microsoft Yi Baiti",
+    "Motiva Sans",
+    Sans-serif;
+}
+
+
+body {
+    background-color: #30323D;
+    color: #ffffff;
+}
+
+.home_title {
+    font-size: 5rem;
+    margin: auto;
+    width: 50%;
+    padding-bottom: 2rem;
+}
+
+.form_header {
+    font-size: 2rem;
+    margin: auto;
+    padding-bottom: 1rem;
+}
+.form_input {
+    height: 2rem;
+    font-size: 18px;
+}
+.create_message {
+    display: flex;
+    flex-direction: column;
+    width: 20rem;
+    margin: auto;
+}
+.main {
+    padding: 2rem;
+    background-color: #5C80BC;
+    margin: auto;
+    width: 40rem;
+    border-radius: 5px;
+    margin-bottom: 2rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.all_messages {
+    margin: auto;
+    width: 50%;
+}
+.message_title {
+    font-size: 2rem;
+    color: rgb(255, 255, 255);
+    text-decoration: none;
+    width: 25rem;
+    margin: auto;
+}
+
+.message_box {
+    font-size: 2rem;
+    text-decoration: none;
+    width: 25rem;
+    margin: auto;
+}
+
+.button {
+    background-color: #E8C547;
+    border: none;
+    color: rgb(0, 0, 0);
+    padding: 8px 15px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 22px;
+    border-radius: 5px;
+    margin-top: 1rem;
+}

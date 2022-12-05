@@ -1,21 +1,48 @@
 var express = require("express");
 var router = express.Router();
 
-router.get("/", function (req, res) {
-  messages = [
-    {
-      id: 1,
-      title: "Secrete Message",
-      content: "This is a test to see if you are snooping.",
-    },
-    {
-      id: 2,
-      title: "Secrete Message 2",
-      content: "This is a test to see if you are still snooping.",
-    },
-  ];
-  // TODO load messages here
-  res.render("messages/index", { messages });
-});
+const { asyncHandler } = require("./utils");
+const { Message } = require("../models");
+const e = require("express");
+
+router.get(
+  "/",
+  asyncHandler(async (req, res, next) => {
+    messages = await Message.findAll();
+    res.render("messages/index", { messages });
+  })
+);
+
+router.post(
+  "/messages",
+  asyncHandler(async (req, res, next) => {
+    // TODO req.body is undefined
+    const { message_title, message_content } = req.body;
+    await Message.create({
+      title: message_title,
+      content: message_content,
+    });
+    res.redirect(`/`);
+  })
+);
+
+router.get(
+  "/messages/:id(\\d+)",
+  asyncHandler(async (req, res, next) => {
+    let messageId = req.params.id;
+    // finds message by id from route
+    const message = await Message.findByPk(messageId);
+    // destroys the message in the db then displays it
+    if (message) {
+      message.destroy();
+      res.render("messages/message", {
+        message,
+      });
+      // redirects to the home page is no message exists
+    } else {
+      res.redirect(`/`);
+    }
+  })
+);
 
 module.exports = router;

@@ -1,0 +1,23 @@
+{
+  "development": {
+    "username": "tmwsd_dev",
+    "password": "password",
+    "database": "tmwsd",
+    "host": "127.0.0.1",
+    "dialect": "postgres"
+  },
+  "test": {
+    "username": "tmwsd_dev",
+    "password": "password",
+    "database": "tmwsd",
+    "host": "127.0.0.1",
+    "dialect": "postgres"
+  },
+  "production": {
+    "username": "tmwsd_dev",
+    "password": "password",
+    "database": "tmwsd",
+    "host": "127.0.0.1",
+    "dialect": "postgres"
+  }
+}

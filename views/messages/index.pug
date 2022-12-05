@@ -1,18 +1,27 @@
+link(rel="stylesheet" href="/stylesheets/index.css")
+
 h1(class="home_title") This Message Will Self-Destruct!
 
-form(class="create_message" action="/message" method="post")
-    div
-    label(for="message_title")
-    input(type="message_title" id="message_title" name="message_title" placeholder="Message Title" required)
-    
-    div
-    label(for="message_content")
-    input(type="message_content" id="message_content" name="password" placeholder="Message Content" required)
-    
-    input(type="submit" class="create_message_button" value="Create Message")
+div(class="main")
+    h2(class="form_header") Create a New Message
+    form(class="create_message" action="/messages" method="post")
+        div
+        label(for="message_title")
+        input(type="text" id="message_title" class="form_input" name="message_title" placeholder="Message Title" required)
+        
+        div
+        label(for="message_content")
+        textarea(type="text" id="message_content" class="form_input" name="message_content" placeholder="Message Content" required)
+        
+        input(type="submit" class="create_message_button button" value="Create Message")
 
-div(class="all_messages")
-each message in messages
-    div(class="game_box")
-        a(href=`/messages/${message.id}`)
-            h2(class="message_title") #{message.title}
+div(class="main")
+    div(class="all_messages")
+        div(class="message_list_text") All Messages
+        div(class="message_container")
+            if messages.length > 0
+                each message in messages
+                    div(class="message_box")
+                        a(class="message_title" href=`/messages/${message.id}`) #{message.title}
+            else
+                div(class="message_container") Create a new message to see something here.

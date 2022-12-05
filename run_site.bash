@@ -1,40 +1,35 @@
-
 create_db () {
-    npx dotenv sequelize db:seed:undo:all
-    npx dotenv sequelize db:migrate:undo:all
-    npx dotenv sequelize db:drop
-    npx dotenv sequelize db:create
-    npx dotenv sequelize db:migrate
-    npx dotenv sequelize db:seed:all
-}
-
-reset_db () {
-    npx dotenv sequelize db:seed:undo:all
-    npx dotenv sequelize db:migrate:undo:all
-    npx dotenv sequelize db:drop
-    npx dotenv sequelize db:create
-    npx dotenv sequelize db:migrate
-    npx dotenv sequelize db:seed:all
-}
-
-if [ $1 == 'create' ]; then
-    npm i
-    CREATE USER tmwsd_dev WITH PASSWORD 'password' SUPERUSER;
-    CREATE DATABASE tmwsd WITH OWNER tmwsd_dev;
+    psql CREATE USER tmwsd_dev WITH PASSWORD 'password' SUPERUSER;
+    psql CREATE DATABASE tmwsd WITH OWNER tmwsd_dev;
 
     npx sequelize model:generate --name Message --attributes title:string,content:string
     npx sequelize seed:generate --name seed_message
 
-    npx dotenv sequelize db:create
-    npx dotenv sequelize db:migrate
-    npx dotenv sequelize db:seed:all
+    npx sequelize db:create
+    npx sequelize db:migrate
+    npx sequelize db:seed:all
+}
 
+reset_db () {
+    npx sequelize db:seed:undo:all
+    npx sequelize db:migrate:undo:all
+    npx sequelize db:drop
+    npx sequelize db:create
+    npx sequelize db:migrate
+    npx sequelize db:seed:all
+}
+
+if [ $1 == 'create_all' ]; then
+    npm i
+    create_db
     node app.js
+elif [ $1 == 'create_db' ]; then
+    create_db
 elif [ $1 == 'migrate' ]; then
-    npx dotenv sequelize db:seed:undo:all
-    npx dotenv sequelize db:migrate:undo:all
-    npx dotenv sequelize db:migrate
-    npx dotenv sequelize db:seed:all
+    npx sequelize db:seed:undo:all
+    npx sequelize db:migrate:undo:all
+    npx sequelize db:migrate
+    npx sequelize db:seed:all
 elif [ $1 == 'clear' ]; then
     clear
     node app.js

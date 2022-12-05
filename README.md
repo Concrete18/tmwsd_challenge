@@ -8,8 +8,8 @@ The goal here is to create a simple web application that allows someone to creat
 
 Fork this repository, clone it, install dependencies, and run it.
 
-``` bash
-git clone {{your_fork_url_here}}
+```bash
+git clone https://github.com/Concrete18/tmwsd_challenge.git
 npm install
 node app.js
 ```
@@ -25,8 +25,9 @@ Complete the following requirements by using any database engine of your choice.
 - [ ] As a user, I should no longer see messages on the homepage that have been viewed.
 
 Two more things:
-* Remember to add documentation to your README so the app can be installed and run locally for review.
-* Bonus points for making it look pretty :sparkles:
+
+- Remember to add documentation to your README so the app can be installed and run locally for review.
+- Bonus points for making it look pretty :sparkles:
 
 ## Step 3: Submit
 

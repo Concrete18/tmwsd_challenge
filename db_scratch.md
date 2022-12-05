@@ -3,9 +3,8 @@
 ## PSQL commands
 
 ```psql
-CREATE USER good_games_dev WITH PASSWORD 'password' SUPERUSER;
-
-CREATE DATABASE good_games WITH OWNER good_games_dev;
+    CREATE USER tmwsd_dev WITH PASSWORD 'password' SUPERUSER;
+    CREATE DATABASE tmwsd WITH OWNER tmwsd_dev;
 ```
 
 ## Sequelize commands

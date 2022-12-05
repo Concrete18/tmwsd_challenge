@@ -1,5 +1,15 @@
-h1 #{game.name}
+link(rel="stylesheet" href="/stylesheets/index.css")
 
-div(class='image_info')
-    h1(class="message_title") #{message.title}
-    h2(class="message_content") #{message.content}
+a(href=`/`) Home
+
+if message
+    div(class="message_header") Message
+
+    div(class="message_header") This message will self-destruct!
+
+    div(class='image_info')
+        h2(class="message_title") #{message.title}
+        h3(class="message_content") #{message.content}
+else
+    h1(class="message_header") Message Does not Exist
+    h2(class="message_title") 
