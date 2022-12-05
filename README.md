@@ -10,11 +10,11 @@ Fork this repository, clone it, install dependencies, and run it.
 
 install Postgres and then run these commands after entering psql
 
-'''bash
+```bash
 CREATE USER tmwsd_dev WITH PASSWORD 'password' SUPERUSER;
 CREATE DATABASE tmwsd WITH OWNER tmwsd_dev;
 \q
-'''
+```
 
 then run these commands
 
