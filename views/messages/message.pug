@@ -1,15 +1,14 @@
 link(rel="stylesheet" href="/stylesheets/index.css")
 
-a(href=`/`) Home
+h1(class="home_title") This Message Will Self-Destruct!
 
-if message
-    div(class="message_header") Message
+div(class="message_container")
 
-    div(class="message_header") This message will self-destruct!
-
-    div(class='image_info')
-        h2(class="message_title") #{message.title}
-        h3(class="message_content") #{message.content}
-else
-    h1(class="message_header") Message Does not Exist
-    h2(class="message_title") 
+    if message
+        div(class='main')
+            div(class="single_message_title") #{message.title}
+            div(class="single_message_content") #{message.content}
+    else
+        div(class='main')
+            div(class="message_header") Message Does not Exist
+    a(class="home_button button" href=`/`) Home

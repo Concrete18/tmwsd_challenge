@@ -8,9 +8,22 @@ The goal here is to create a simple web application that allows someone to creat
 
 Fork this repository, clone it, install dependencies, and run it.
 
+install Postgres and then run these commands after entering psql
+
+'''bash
+CREATE USER tmwsd_dev WITH PASSWORD 'password' SUPERUSER;
+CREATE DATABASE tmwsd WITH OWNER tmwsd_dev;
+\q
+'''
+
+then run these commands
+
 ```bash
 git clone https://github.com/Concrete18/tmwsd_challenge.git
 npm install
+npx sequelize db:create
+npx sequelize db:migrate
+npx sequelize db:seed:all
 node app.js
 ```
 

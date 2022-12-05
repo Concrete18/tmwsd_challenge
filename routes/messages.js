@@ -34,7 +34,7 @@ router.get(
     const message = await Message.findByPk(messageId);
     // destroys the message in the db then displays it
     if (message) {
-      message.destroy();
+      message.destroy(); // TODO uncomment
       res.render("messages/message", {
         message,
       });
